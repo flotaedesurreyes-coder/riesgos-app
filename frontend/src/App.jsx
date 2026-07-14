@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Routes, Route, Link, useLocation, Navigate } from 'react-router-dom'
 import {
   LayoutDashboard, Building2, GitBranch, Scale, HelpCircle,
@@ -28,17 +29,31 @@ const chainItems = [
 
 export default function App() {
   const location = useLocation()
+  const [menuOpen, setMenuOpen] = useState(false)
 
   return (
     <div className="min-h-screen flex">
-      <aside className="w-64 bg-[#1F4E79] text-white flex flex-col">
-        <div className="p-4 border-b border-blue-800">
-          <h1 className="text-xl font-bold">RiesgosApp</h1>
-          <p className="text-xs text-blue-200 mt-1">Gesti&oacute;n de Riesgos POA</p>
+      {menuOpen && (
+        <div className="fixed inset-0 bg-black/50 z-40 lg:hidden" onClick={() => setMenuOpen(false)} />
+      )}
+
+      <aside className={`fixed inset-y-0 left-0 z-50 w-64 bg-[#1F4E79] text-white flex flex-col transition-transform duration-300 lg:static lg:translate-x-0 ${
+        menuOpen ? 'translate-x-0' : '-translate-x-full'
+      }`}>
+        <div className="p-4 border-b border-blue-800 flex items-center justify-between">
+          <div>
+            <h1 className="text-xl font-bold">RiesgosApp</h1>
+            <p className="text-xs text-blue-200 mt-1">Gesti&oacute;n de Riesgos POA</p>
+          </div>
+          <button onClick={() => setMenuOpen(false)} className="lg:hidden text-white hover:text-blue-200">
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
         </div>
         <nav className="flex-1 p-2 space-y-1">
           {navItems.map(item => (
-            <Link key={item.path} to={item.path}
+            <Link key={item.path} to={item.path} onClick={() => setMenuOpen(false)}
               className={`flex items-center gap-2 px-3 py-2 rounded text-sm transition-colors ${
                 location.pathname === item.path ? 'bg-blue-700 text-white' : 'text-blue-200 hover:bg-blue-700/50'
               }`}>
@@ -49,7 +64,7 @@ export default function App() {
           <div className="border-t border-blue-700 my-2 pt-2">
             <p className="px-3 text-xs text-blue-300 uppercase font-semibold mb-1">Cadena de Riesgos</p>
             {chainItems.map((item, idx) => (
-              <Link key={item.path} to={item.path}
+              <Link key={item.path} to={item.path} onClick={() => setMenuOpen(false)}
                 className={`flex items-center gap-2 px-3 py-2 rounded text-sm transition-colors ${
                   location.pathname === item.path ? 'bg-blue-700 text-white' : 'text-blue-200 hover:bg-blue-700/50'
                 }`}>
@@ -68,8 +83,13 @@ export default function App() {
         </div>
       </aside>
 
-      <main className="flex-1 overflow-auto">
-        <div className="p-6">
+      <main className="flex-1 overflow-auto min-h-screen">
+        <div className="p-4 sm:p-6">
+          <button onClick={() => setMenuOpen(true)} className="lg:hidden mb-4 text-[#1F4E79] hover:text-blue-700">
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/empresas" element={<EmpresasPage />} />

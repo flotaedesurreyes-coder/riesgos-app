@@ -56,7 +56,7 @@ export default function EmpresasPage() {
     <div>
       <h1 className="text-2xl font-bold text-[#1F4E79] mb-6">Empresas e Indicadores</h1>
 
-      <div className="grid grid-cols-2 gap-6 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
         <div className="bg-white rounded-lg shadow p-4">
           <h2 className="font-semibold mb-3 flex items-center gap-2"><Building2 size={18} /> Nueva Empresa</h2>
           <div className="flex gap-2">

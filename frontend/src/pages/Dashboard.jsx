@@ -41,7 +41,7 @@ export default function Dashboard() {
     <div>
       <h1 className="text-2xl font-bold text-[#1F4E79] mb-6">Dashboard</h1>
 
-      <div className="grid grid-cols-5 gap-4 mb-8">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 mb-8">
         {[
           { label: 'Empresas', value: stats.empresas, icon: Building2, color: 'text-blue-600' },
           { label: 'Indicadores', value: stats.indicadores, icon: TrendingUp, color: 'text-green-600' },
@@ -60,7 +60,7 @@ export default function Dashboard() {
       </div>
 
       <h2 className="text-lg font-semibold text-[#1F4E79] mb-4">Cadena de An&aacute;lisis de Riesgos</h2>
-      <div className="grid grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
         {stepCards.map((step, idx) => (
           <Link key={step.path} to={step.path}
             className="bg-white rounded-lg shadow hover:shadow-md transition-shadow p-4 border-t-4"

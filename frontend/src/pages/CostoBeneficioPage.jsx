@@ -93,8 +93,8 @@ export default function CostoBeneficioPage() {
           {showForm && (
             <div className="bg-white rounded-lg shadow p-4 mb-6 border border-blue-200">
               <h3 className="font-semibold mb-3">{editId ? 'Editar' : 'Nueva'} Acci&oacute;n</h3>
-              <div className="grid grid-cols-2 gap-2 mb-2">
-                <div className="col-span-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-2">
+                <div className="sm:col-span-2">
                   <input value={form.accion} onChange={e => setForm({ ...form, accion: e.target.value })}
                     className="w-full border rounded px-3 py-2 text-sm" placeholder="Accion de mejora" />
                 </div>
@@ -102,14 +102,14 @@ export default function CostoBeneficioPage() {
                   className="border rounded px-3 py-2 text-sm" placeholder="Riesgo asociado" />
               </div>
               <p className="text-xs font-semibold text-gray-500 mb-1">Beneficios (0-3)</p>
-              <div className="grid grid-cols-5 gap-2 mb-2">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 mb-2">
                 {[['presupuesto', 'Presupuesto'], ['disminucion_impacto', 'Dism Impacto'], ['disminucion_probabilidad', 'Dism Prob'], ['tiempo_implementacion', 'Tiempo'], ['personal_propio', 'Personal']].map(([k, lbl]) => (
                   <div key={k}><label className="text-xs text-gray-400">{lbl}</label>
                     <input type="number" min={0} max={3} value={form[k]} onChange={e => setForm({ ...form, [k]: Number(e.target.value) })} className="w-full border rounded px-3 py-2 text-sm" /></div>
                 ))}
               </div>
               <p className="text-xs font-semibold text-gray-500 mb-1">Costos / Consecuencias (0-3)</p>
-              <div className="grid grid-cols-5 gap-2 mb-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 mb-3">
                 {[['impacto_imagen', 'Imagen'], ['impacto_resultados', 'Resultados'], ['impacto_equipos', 'Equipos'], ['impacto_legales', 'Legales'], ['probabilidad_antes', 'Prob Antes']].map(([k, lbl]) => (
                   <div key={k}><label className="text-xs text-gray-400">{lbl}</label>
                     <input type="number" min={0} max={3} value={form[k]} onChange={e => setForm({ ...form, [k]: Number(e.target.value) })} className="w-full border rounded px-3 py-2 text-sm" /></div>
@@ -138,7 +138,7 @@ export default function CostoBeneficioPage() {
                       <button onClick={() => remove(a.id)} className="text-red-500 hover:text-red-700 text-sm">Eliminar</button>
                     </div>
                   </div>
-                  <div className="p-4 grid grid-cols-4 gap-4">
+                  <div className="p-4 grid grid-cols-2 sm:grid-cols-4 gap-4">
                     <div className="text-center">
                       <div className="flex items-center justify-center gap-1 text-green-600">
                         <TrendingUp size={16} />
@@ -176,7 +176,7 @@ export default function CostoBeneficioPage() {
       {/* Reference table */}
       <div className="mt-8 bg-white rounded-lg shadow p-4">
         <h3 className="font-semibold text-[#1F4E79] mb-2">Reglas de Decisi&oacute;n B/C</h3>
-        <div className="grid grid-cols-5 gap-2 text-xs">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 text-xs">
           {[
             { range: '< 1', desc: 'NO IMPLEMENTAR', class: 'bg-red-100 text-red-800' },
             { range: '1 - 1.5', desc: '6 meses maximo', class: 'bg-yellow-100 text-yellow-800' },

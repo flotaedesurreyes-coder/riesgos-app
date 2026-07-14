@@ -95,7 +95,7 @@ export default function Matriz7MPage() {
       </h1>
 
       <div className="bg-white rounded-lg shadow p-4 mb-6">
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <select onChange={handleEmpresaChange} className="border rounded px-3 py-2 text-sm">
             <option value="">Seleccionar empresa</option>
             {empresas.map(e => <option key={e.id} value={e.id}>{e.nombre}</option>)}
@@ -117,7 +117,7 @@ export default function Matriz7MPage() {
           {showForm && (
             <div className="bg-white rounded-lg shadow p-4 mb-6 border border-blue-200">
               <h3 className="font-semibold mb-3">{editId ? 'Editar Riesgo' : 'Nuevo Riesgo'}</h3>
-              <div className="grid grid-cols-2 gap-3 mb-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
                 <select value={form.categoria} onChange={e => setForm({ ...form, categoria: e.target.value })}
                   className="border rounded px-3 py-2 text-sm">
                   {categorias.map(c => <option key={c} value={c}>{c}</option>)}
@@ -129,7 +129,7 @@ export default function Matriz7MPage() {
                 className="w-full border rounded px-3 py-2 text-sm mb-3" placeholder="Nombre del riesgo" />
               <textarea value={form.descripcion} onChange={e => setForm({ ...form, descripcion: e.target.value })}
                 className="w-full border rounded px-3 py-2 text-sm mb-3" rows={2} placeholder="Descripcion del riesgo" />
-              <div className="grid grid-cols-2 gap-3 mb-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
                 <textarea value={form.efecto} onChange={e => setForm({ ...form, efecto: e.target.value })}
                   className="border rounded px-3 py-2 text-sm" rows={2} placeholder="Efecto en cliente externo" />
                 <textarea value={form.controles} onChange={e => setForm({ ...form, controles: e.target.value })}
@@ -141,8 +141,8 @@ export default function Matriz7MPage() {
             </div>
           )}
 
-          <div className="bg-white rounded-lg shadow overflow-hidden">
-            <table className="w-full text-sm">
+          <div className="bg-white rounded-lg shadow overflow-x-auto">
+            <table className="w-full text-sm min-w-[700px]">
               <thead className="bg-[#1F4E79] text-white">
                 <tr>
                   <th className="p-2 text-left">7M</th>

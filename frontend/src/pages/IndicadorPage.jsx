@@ -63,7 +63,7 @@ export default function IndicadorPage() {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-4 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
         <div className="bg-blue-50 rounded-lg shadow p-4 text-center">
           <p className="text-3xl font-bold text-blue-600">{stats.riesgos}</p>
           <p className="text-sm text-blue-800">Riesgos 7M</p>
@@ -79,7 +79,7 @@ export default function IndicadorPage() {
       </div>
 
       <h2 className="text-lg font-semibold text-[#1F4E79] mb-4">Cadena de An&aacute;lisis</h2>
-      <div className="grid grid-cols-5 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
         {chainLinks.map(link => (
           <Link key={link.path} to={link.path}
             className="bg-white rounded-lg shadow p-4 hover:shadow-md transition-shadow text-center">

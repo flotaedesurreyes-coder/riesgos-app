@@ -94,7 +94,7 @@ export default function CincoPorQuePage() {
                 {riesgos.map(r => <option key={r.id} value={r.id}>{r.riesgo}</option>)}
               </select>
               {form.preguntas.map((p, idx) => (
-                <div key={idx} className="grid grid-cols-2 gap-2 mb-2">
+                <div key={idx} className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-2">
                   <input value={p.pregunta} onChange={e => { const q = [...form.preguntas]; q[idx].pregunta = e.target.value; setForm({ ...form, preguntas: q }) }}
                     className="border rounded px-3 py-2 text-sm" placeholder={`${idx + 1}. Por que?`} />
                   <input value={p.respuesta} onChange={e => { const q = [...form.preguntas]; q[idx].respuesta = e.target.value; setForm({ ...form, preguntas: q }) }}

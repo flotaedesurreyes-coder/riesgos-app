@@ -37,7 +37,7 @@ export default function CriteriosPage() {
         <Scale size={24} /> Criterios de Valoraci&oacute;n
       </h1>
 
-      <div className="grid grid-cols-3 gap-4 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
         {tipos.map(tipo => (
           <div key={tipo} className={`bg-white rounded-lg shadow p-4 border-t-4 ${tipoColors[tipo]}`}>
             <h2 className="font-semibold text-[#1F4E79] mb-3">{tipo}</h2>
@@ -63,7 +63,7 @@ export default function CriteriosPage() {
             F&oacute;rmula: <strong>NPR = Probabilidad x Impacto x Detectabilidad</strong>
             &nbsp;(Rango: {nprInfo.rango_min} - {nprInfo.rango_max})
           </p>
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {Object.entries(nprInfo.clasificacion).map(([key, val]) => (
               <div key={key} className={`rounded p-3 text-white text-center ${
                 key === 'Bajo' ? 'bg-green-500' : key === 'Moderado' ? 'bg-yellow-500' : 'bg-red-500'
