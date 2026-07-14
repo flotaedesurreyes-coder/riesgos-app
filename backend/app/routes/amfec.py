@@ -73,7 +73,7 @@ def listar_amfec(indicador_id: int, db: Session = Depends(get_db)):
 def crear_amfec(data: AMFECCreate, db: Session = Depends(get_db)):
     npr = data.probabilidad * data.impacto * data.detectabilidad
     clasif = data.clasificacion or calcular_clasificacion(npr)
-    row = AMFECRow(**data.model_dump(), clasificacion=clasif)
+    row = AMFECRow(**data.model_dump(exclude={"clasificacion"}), clasificacion=clasif)
     db.add(row)
     db.commit()
     db.refresh(row)
