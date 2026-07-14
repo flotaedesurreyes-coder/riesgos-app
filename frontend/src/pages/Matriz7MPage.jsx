@@ -86,6 +86,7 @@ export default function Matriz7MPage() {
     'MAQUINARIA': 'bg-purple-100 text-purple-800',
     'MEDICION': 'bg-green-100 text-green-800',
     'MEDIO AMBIENTE': 'bg-orange-100 text-orange-800',
+    'MANEJO ADMIN': 'bg-pink-100 text-pink-800',
   }
 
   return (
