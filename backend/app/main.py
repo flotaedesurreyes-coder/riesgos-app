@@ -4,8 +4,10 @@ import os
 
 from app.database import engine, Base
 from app.routes import indicadores, matriz_7m, criterios, cinco_por_que, amfec, costo_beneficio, exportar
+from app.seed import seed_demo_data
 
 Base.metadata.create_all(bind=engine)
+seed_demo_data()
 
 app = FastAPI(title="RiesgosApp API", version="1.0.0")
 
